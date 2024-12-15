@@ -1,3 +1,5 @@
-[debug] not up to date. inChanged = true, force = false
-[debug] Updating ProjectRef(uri("file:/Users/hyunjeongkim/IdeaProjects/untitled3/project/"), "untitled3-build")...
-[debug] Done updating ProjectRef(uri("file:/Users/hyunjeongkim/IdeaProjects/untitled3/project/"), "untitled3-build")
+[0m[[0m[0mdebug[0m] [0m[0mnot up to date. inChanged = true, force = false[0m
+[0m[[0m[0mdebug[0m] [0m[0mUpdating ProjectRef(uri("file:/Users/hyunjeongkim/Desktop/PL/src/bfae/project/"), "bfae-build")...[0m
+[0m[[0m[0minfo[0m] [0m[0mFetching artifacts of bfae-build[0m
+[0m[[0m[0minfo[0m] [0m[0mFetched artifacts of bfae-build[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone updating ProjectRef(uri("file:/Users/hyunjeongkim/Desktop/PL/src/bfae/project/"), "bfae-build")[0m
