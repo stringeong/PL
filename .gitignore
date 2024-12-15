@@ -1,0 +1,37 @@
+# SBT 빌드 폴더
+target/
+project/target/
+project/project/
+lib_managed/
+src_managed/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# VS Code
+.vscode/
+
+# 시스템 파일
+.DS_Store        # macOS 시스템 파일
+Thumbs.db        # Windows 시스템 파일
+
+# 로그 파일
+*.log
+
+# 환경 파일
+.env             # 환경 변수 파일
+
+# 커버리지 보고서
+coverage/
+*.coverage
+*.coverage.xml
+
+# 임시 및 스왑 파일
+*.tmp
+*.swp
+*.swo
+
