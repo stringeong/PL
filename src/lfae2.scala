@@ -56,8 +56,8 @@ def interp (e: Expr, env: Env): Value = {
 @main
 def main (): Unit = {
   val t0 = App(Fun("y", Add(Id("y"), Num(1))), Num(2))// lambda y. y + 1 (2)
-  val t1 = App(Fun("x", Add(Id("x"), Id("x"))), t0) // lambda x. x + x (y)
+  val t1 = App(Fun("x", Add(Id("x"), Id("x"))), t0) 
   val t2 = App(Fun("x", Add(Id("x"), Id("x"))), App(Fun("y", Add(Id("y"), Num(1))), Num(2)))
-  // lambda x. x + x ( lambda y. y + 1 (2)) 즉, t1과 t2는 같은 표현
+  // lambda x. x + x ( lambda y. y + 1 (2)) t1과 t2는 같은 표현
   println(interp(t2, Map.empty))
 }
