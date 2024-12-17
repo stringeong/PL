@@ -118,20 +118,21 @@ def main (): Unit = {
       Map.empty,
       Map.empty)
 
-  val p2=
-    interp(
-      App(
-        Fun("y",
-          Seqn(
-            SetBox(Id("y"), Num(7)),
-            OpenBox(Id("y"))
-          )
-        ),
-        NewBox(Num(2))
+  //(λx.(λy.x:=8; !y) x) box 7
+  val t0 = NewBox(Num(7)) // box 7
+  val t1 = Fun("x", // λx
+    App(
+      Fun("y", // λy
+        Seqn(
+          SetBox(Id("x"), Num(8)), // x := 8
+          OpenBox(Id("y")) // !y
+        )
       ),
-      Map.empty,
-      Map.empty)
-
+      Id("x") // y에 x를 전달
+    )
+  )
+  val t3 = App(t1, t0) // λx 실행, x = box 7
+  
   println(p)
-  println(p2)
+  println(t3)
 }
