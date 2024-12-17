@@ -1,4 +1,4 @@
-package LFAE
+package LFAE // call by name
 
 sealed trait Expr
 case class Num (value: Int) extends Expr
@@ -50,12 +50,21 @@ def interp (e: Expr, env: Env): Value = {
 
 @main
 def main (): Unit = {
-  interp(
-    App(
-      Fun("x", Num(1)),
-      App(Num(1), Num(1))
-    ),
-    Map.empty
-  )
+ 
+    val t = App(Fun("x", Num(1)), App(Num(1), Num(1))) 
+    println(interp(t, Map.empty))
+    /*
+    lambda x. 1 (1 1) -> FAE라면 1 1 에서 오류 (1이 클로저가 아니기에) but 함수 body엔 x가 등장하지 않으므로 1 출력
+    call by neme은, 매개변수가 함수 body에서 적게 사용될 땐 효율적이지만, 같은 매개변수가 두 번 이상 사용되면 반복된 계산 >> 비효율적
+    */
+    //예시
+    Fun("g", Add(Id("y"), Num(1))) // g(y) = y + 1
+    val t1 = App(Fun("f", Add(Id("x"), Id("x"))), Id("g"))
+  // f(x) = x + x 일 때, f(g) = g + g 즉, g가 2번 평가됨 + Add(Id("x"), Id("x))에서 strict interp overhead 발생
+  // call by need 로 memoization을 이용해 최적화 가능
+    println(interp(t1, Map.empty))
+  
+  
+   
 
 }
