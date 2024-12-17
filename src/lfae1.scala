@@ -43,7 +43,7 @@ def interp (e: Expr, env: Env): Value = {
     case Fun(x, b) => CloV(x, b, env)
     case App(f, a) => {
       val CloV(x, b, cEnv) = strict(interp(f, env))
-      interp(b, cEnv + (x -> interp(a, env)))
+      interp(b, cEnv + (x -> ExprV(a, env))) // argument를 넘길 때, ExprV로 넘김
     }
   }
 }
